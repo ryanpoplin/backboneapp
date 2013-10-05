@@ -2,7 +2,7 @@ App.Routers.User = Backbone.Router.extend({
 
 	routes: {
 
-		''					: 'users',
+		'users'				: 'users',
 		'users/add'			: 'usersAdd'
 
 	},

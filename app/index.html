@@ -75,17 +75,29 @@
             <div class="user">
 
                 <img src=<%- photoLink %> class="profile" />
+                
                 <h2 class="user-name">
                     <%- firstName %>
                     <%- lastName %>
                 </h2>
+                
                 <a href=<%- githubLink %> class="github">GitHub Account</a>
+                
                 <button class="edit">Edit</button>
-                <input type="text" value=<%- photoLink %> class="photoEdit" />
-                <input type="text" value=<%- firstName %> class="firstEdit" />
-                <input type="text" value=<%- lastName %> class="lastEdit" />
-                <input type="text" value=<%- githubLink %> class="githubEdit" />
-                <button class="save">Save</button>
+                
+                <form class="add-edit-form">
+                    
+                    <input type="text" value=<%- photoLink %> class="profile-edit" />
+                    <input type="text" value=<%- firstName %> class="first-edit" />
+                    <input type="text" value=<%- lastName %> class="last-edit" />
+                    <input type="text" value=<%- githubLink %> class="github-edit" />
+                    
+                    <input type="submit" class="save" value="Save" />
+                
+                </form>
+
+                <button class="remove-edit">Cancel</button>
+                
                 <button class="delete">Delete</button>
             
             </div>

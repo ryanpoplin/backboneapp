@@ -24,6 +24,10 @@ body {
     display: none;
 }
 
+.remove-edit {
+    display: none;
+}
+
 .profile {
     display: inline;
     height: 200px;
@@ -43,6 +47,10 @@ body {
 }
 
 .add-user-form {
+    display: none;
+}
+
+.add-edit-form {
     display: none;
 }
 

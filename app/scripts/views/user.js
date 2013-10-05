@@ -65,7 +65,15 @@ App.Views.User = Backbone.View.extend({
 
 	edit: function () {
 
-		console.log('Show the form...');
+		this.$('form').show().find('input.profile-edit').focus();	
+
+		this.$('.remove-edit').show();	
+
+	},
+
+	save: function () {
+
+		
 
 	},
 
