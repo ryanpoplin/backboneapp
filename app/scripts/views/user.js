@@ -4,6 +4,7 @@ App.Views.User = Backbone.View.extend({
 
 	// Store the template object...
 	template: _.template($('#template-user').html()), 
+	
 	// Will point to the element the 'user views' are in...
 	$container: null,
 

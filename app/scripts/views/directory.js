@@ -1,3 +1,5 @@
+// Main application view...
+
 App.Views.Directory = Backbone.View.extend({
 
 	events: {

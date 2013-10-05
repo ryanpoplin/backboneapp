@@ -1,17 +1,3 @@
-// Application dependency checker...
-var object = {};
-
-_.extend(object, Backbone.Events);
-
-object.on("confirm", function(msg){
-	
-	console.log(jQuery() !== undefined, _.VERSION, Backbone.VERSION);
-	console.log(msg);
-
-});
-
-object.trigger("confirm", "Backbone is ready to go...");
-
 // Global App object...
 var App = {
 	
@@ -20,25 +6,44 @@ var App = {
 	Collections: {},
 	Views: {},
 	Routers: {},
-	Brower: null,
+	Browser: null,
 	// The collection instance...
 	Users: null,
+	Tests: null,
 	Directory: null
 
 };
 
-// DOM ready function...
+// jQuery's DOM ready function...
 $(function(){
+
+	// Me testing around...
+	window.byrdann = new App.Models.Test({
+		firstName: 'Byrdann',
+		lastName: 'Foxx'
+	});
 
 	// A new instance of the 'User' collection to utilize the models...
 	App.Users = new App.Collections.User();
 
-	App.Users.add({
+	// Testing...
+	App.Tests = new App.Collections.Test();
+
+	// Testing...
+	App.Tests.add(window.byrdann);	
+
+	// Me testing around, again...
+	App.Tests.add({
 		profileLink: 'https://1.gravatar.com/avatar/5f82bfa696bada6b49afcac4569017cb?d=https%3A%2F%2Fidenticons.github.com%2Fce1b18b1d3e7b2cb1527db14040458e9.png&s=420',
 		firstName: 'Ryan',
 		lastName: 'Poplin',
 		githubLink: 'https://github.com/ryanpoplin',
 		id: 15
+	});
+
+	// Just to see it...
+	App.Tests.each(function(user){
+		console.log(user.get('firstName') + " " + user.get('lastName'));
 	});
 
 	App.Directory = new App.Views.Directory({

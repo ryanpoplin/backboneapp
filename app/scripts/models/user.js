@@ -1,13 +1,10 @@
-// Each instance of this model acts like an object and element in the collections DB []...
+// A 'model' is similar to an {} stored as an element in a NoSQL []... 
 
-// There will be a different model for each user to be stored/organized in the collection...
-
-// The 'model'...
+// Each instance of this 'User' model will be stored in the 'User' collection...
+// There will be a new 'User' model instance for each user added...
 App.Models.User = Backbone.Model.extend({
 	
-	// urlRoot: 'http:0.0.0.0:3000/collections/users',
-
-	// These defaults will be utilized if the new model doesn't have them...
+	// These defaults properties will be utilized if the new model doesn't...
 	defaults: {
 		
 		photoLink: '',
@@ -17,27 +14,29 @@ App.Models.User = Backbone.Model.extend({
 	
 	},
 
-	// Model data validation...
-	validate: function(attrs) {
+	// Standard Backbone data validation method...
+	validate: function(attrs, options) {
 		
-		console.log(attrs);
-
-		if(!attrs.firstName){
-			return "Your first name is required...";
-			console.log('Your first name is required...');
+		if(!attrs.firstName || !attrs.lastName){
+			return "Your first and last name is required...";
 		}
 
 	},
 
-	// My debugging message...
+	// A debugging method...
 	initialize: function(attributes) {
-
-		console.log(attributes);
 		
 		var firstName = attributes.firstName || 'N/A';
 		var lastName = attributes.lastName || 'N/A';
 		console.log("New user model: '" + firstName + " " + lastName + "'.");
 	
 	}
+
+});
+
+// Just messing around...
+App.Models.Test = Backbone.Model.extend({
+
+	// It doesn't need anything...
 
 });
