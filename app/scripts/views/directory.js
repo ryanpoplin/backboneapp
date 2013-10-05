@@ -2,6 +2,7 @@
 
 App.Views.Directory = Backbone.View.extend({
 
+	// Events...
 	events: {
 
 		'click .controls .add'		: 'addForm',
@@ -12,14 +13,19 @@ App.Views.Directory = Backbone.View.extend({
 
 	initialize: function() {
 
+		// console.log(this);
+
+		// 'this' will refer to the entire view object...
 		_.bindAll(this, 'render', 'addForm', 'addFormHide', 'addSubmit');
 
 	},
 
 	render: function() {
 
+		// Clear out the existing elements...
 		var $container = this.$('.listing').empty();
 
+		// Iterate over each user in the collection...
 		App.Users.each(function(user){
 			
 			new App.Views.User({

@@ -14,16 +14,19 @@ App.Models.User = Backbone.Model.extend({
 	
 	},
 
+	// MongoDB _id...
+	idAttribute: '_id',
+
 	// Standard Backbone data validation method...
 	validate: function(attrs, options) {
 		
 		if(!attrs.firstName || !attrs.lastName){
-			return "Your first and last name is required...";
+			return "Your first and last name are required...";
 		}
 
 	},
 
-	// A debugging method...
+	// Debug on initialization...
 	initialize: function(attributes) {
 		
 		var firstName = attributes.firstName || 'N/A';
