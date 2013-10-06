@@ -3,7 +3,7 @@ App.Routers.User = Backbone.Router.extend({
 	routes: {
 
 		'users'				: 'users',
-		'users/add'			: 'usersAdd'
+		'users/add'			: 'usersAdd',
 
 	},
 
@@ -19,6 +19,6 @@ App.Routers.User = Backbone.Router.extend({
 
 		App.Directory.addForm();
 
-	},
+	}
 
 });

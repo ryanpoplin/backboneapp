@@ -16,7 +16,7 @@ App.Views.User = Backbone.View.extend({
 	events: {
 		'click .edit'			: 'editFormShow',
 		'click .remove-edit' 	: 'editFormHide',
-		'click .save'			: 'save',
+		'click .save-edit'		: 'saveEdit',
 		'click .delete'			: 'remove'
 	},
 
@@ -25,9 +25,9 @@ App.Views.User = Backbone.View.extend({
 	initialize: function(extras) {
 		
 		// 'this' will refer to the entire view object...
-		_.bindAll(this, 'render', 'insert', 'editFormShow', 'editFormHide', 'remove');
+		_.bindAll(this, 'render', 'insert', 'editFormShow', 'saveEdit', 'editFormHide', 'remove');
 		
-		// console.log(this);
+		console.log(this);
 
 		// The containing element the views are added to...
 		// console.log(extras);
@@ -67,6 +67,8 @@ App.Views.User = Backbone.View.extend({
 
 	editFormShow: function () {
 
+		App.Browser.navigate('users');
+
 		this.$('form').show().find('input.profile-edit').focus();	
 
 		this.$('.remove-edit').show();	
@@ -81,13 +83,18 @@ App.Views.User = Backbone.View.extend({
 
 	},
 
-	save: function () {
-		
-		this.model.set({"photoLink": $('.profile-edit').val()});
-		this.model.set({"firstName": $('.first-edit').val()});
-		this.model.set({"lastName": $('.last-edit').val()});
-		this.model.set({"githubLink": $('.github-edit').val()});
+	saveEdit: function () {
 
+		var profile = $('.profile-edit').val();
+		var first = $('.first-edit').val();
+		var last = $('.last-edit').val();
+		var github = $('.github-edit').val();
+		this.model.set({
+			"photoLink": profile,
+			"firstName": first,
+			"lastName" : last,
+			"githubLink": github
+		});
 		this.model.save();
 
 	},

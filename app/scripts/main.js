@@ -52,7 +52,7 @@ $(function(){
 
 	});
 
-	App.Directory.render();
+	// App.Directory.render();
 
 	App.Users.on('add remove', function(){
 
